@@ -16,7 +16,12 @@ class Navbar extends Component {
               SmartChainDB
             </Typography>
             <div className="navbar-buttons">
-              <Button component={() => <Link to="/" />} color="inherit">
+              <Button
+                component={({ innerRef, ...props }) => (
+                  <Link {...props} to="/" />
+                )}
+                color="inherit"
+              >
                 Home
               </Button>
             </div>
