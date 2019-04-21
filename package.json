@@ -4,17 +4,24 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.3",
+    "lodash-es": "^4.17.11",
     "react": "^16.8.6",
+    "react-content-loader": "^4.2.1",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "2.1.8"
+    "react-select": "^2.4.3",
+    "rxjs": "^6.4.0"
   },
   "devDependencies": {
     "@types/jest": "24.0.11",
+    "@types/lodash-es": "^4.17.3",
     "@types/node": "11.12.0",
     "@types/react": "16.8.10",
     "@types/react-dom": "16.8.3",
     "@types/react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.8",
+    "tslint": "^5.15.0",
+    "tslint-react": "^4.0.0",
     "typescript": "3.3.4000"
   },
   "scripts": {
