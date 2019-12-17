@@ -1,0 +1,1536 @@
+@prefix : <http://www.semanticweb.org/abhilashalokannavar/ontologies/2019/11/GeneralizedRequest> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/abhilashalokannavar/ontologies/2019/11/GeneralizedRequest> .
+
+<http://www.semanticweb.org/abhilashalokannavar/ontologies/2019/11/GeneralizedRequest> rdf:type owl:Ontology ;
+                                                                                        owl:imports <http://resourcedescription.tut.fi/ontology/capabilityModel> ,
+                                                                                                    <http://resourcedescription.tut.fi/ontology/resourceInterfaceModel> ;
+                                                                                        <http://purl.org/dc/elements/1.1/contributor> "Eeva Järvenpää"^^xsd:string ,
+                                                                                                                                      "Niko Siltala"^^xsd:string ,
+                                                                                                                                      "Otto Hylli"^^xsd:string ;
+                                                                                        <http://purl.org/dc/elements/1.1/creator> "Eeva Järvenpää"^^xsd:string ;
+                                                                                        <http://purl.org/dc/elements/1.1/date> "2018-03-18"^^xsd:string ;
+                                                                                        <http://purl.org/dc/elements/1.1/description> "Resource Model (RM) ontology is a data model for describing production resources, their capabilities and interfaces. The Resource Model imports two other ontologies, namely Capability Model and Resource Interface Model."@en ;
+                                                                                        <http://purl.org/dc/elements/1.1/language> "en"^^xsd:language ;
+                                                                                        <http://purl.org/dc/elements/1.1/rights> "This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0). To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/ "@en ;
+                                                                                        <http://purl.org/dc/elements/1.1/title> "Resource Model ontology" ;
+                                                                                        rdfs:comment "Resource Model (RM) ontology is a data model for describing production resources, their capabilities and interfaces. The Resource Model imports two other ontologies, namely Capability Model and Resource Interface Model."@en ,
+                                                                                                     """The ontology has been defined at Tampere University of Technology, Finland, by Eeva Järvenpää, Niko Siltala and Otto Hylli. The research has received funding from the European Union Horizon 2020 Programm under grant agreement nbr 680759 (Project ReCaM - Rapid Reconfiguration of Flexible Production Systems through Capability-based Adaptation, Auto-configuration and Integrated tools for Production Planning)
+
+Licencing: Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)
+To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/ """^^xsd:string ;
+                                                                                        rdfs:label "Resource Model ontology" ;
+                                                                                        owl:versionInfo "0.0.4"^^xsd:string .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/contributor
+<http://purl.org/dc/elements/1.1/contributor> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/date
+<http://purl.org/dc/elements/1.1/date> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+<http://purl.org/dc/elements/1.1/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/language
+<http://purl.org/dc/elements/1.1/language> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/rights
+<http://purl.org/dc/elements/1.1/rights> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://resourcedescription.tut.fi/ontology/capabilityModel#hasOrientation
+<http://resourcedescription.tut.fi/ontology/capabilityModel#hasOrientation> rdf:type owl:ObjectProperty ,
+                                                                                     owl:FunctionalProperty ;
+                                                                            rdfs:comment "This property defines the orientation of the entity." .
+
+
+###  http://resourcedescription.tut.fi/ontology/capabilityModel#isInputAssociationForCapability
+<http://resourcedescription.tut.fi/ontology/capabilityModel#isInputAssociationForCapability> rdf:type owl:ObjectProperty ;
+                                                                                             rdfs:comment "This property indicates for which capability this is input." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#adjacentTo
+<http://resourcedescription.tut.fi/ontology/resourceModel#adjacentTo> rdf:type owl:ObjectProperty ;
+                                                                      rdfs:comment "This property tells which entities are adjacent (close to, next to) the current entity, but not physically connected." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#connectedTo
+<http://resourcedescription.tut.fi/ontology/resourceModel#connectedTo> rdf:type owl:ObjectProperty ;
+                                                                       rdfs:comment "This property indicates if the entity is physically connected to other entity." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#hasArea
+<http://resourcedescription.tut.fi/ontology/resourceModel#hasArea> rdf:type owl:ObjectProperty ;
+                                                                   rdfs:domain <http://resourcedescription.tut.fi/ontology/resourceModel#Site> ;
+                                                                   rdfs:range <http://resourcedescription.tut.fi/ontology/resourceModel#Area> ;
+                                                                   rdfs:comment "This property defines the areas that are located in the site/factory." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#hasBasicResourceInformation
+<http://resourcedescription.tut.fi/ontology/resourceModel#hasBasicResourceInformation> rdf:type owl:ObjectProperty ,
+                                                                                                owl:FunctionalProperty ;
+                                                                                       rdfs:range <http://resourcedescription.tut.fi/ontology/capabilityModel#BasicResourceInformation> .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#hasCalculatedCapability
+<http://resourcedescription.tut.fi/ontology/resourceModel#hasCalculatedCapability> rdf:type owl:ObjectProperty ;
+                                                                                   rdfs:subPropertyOf <http://resourcedescription.tut.fi/ontology/resourceModel#hasCapability> ;
+                                                                                   rdfs:domain <http://resourcedescription.tut.fi/ontology/resourceModel#RealDeviceCombination> ;
+                                                                                   rdfs:comment "Calculated capability is a combined capability of combination of devices, e.g. a device combination or a station." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#hasCapability
+<http://resourcedescription.tut.fi/ontology/resourceModel#hasCapability> rdf:type owl:ObjectProperty ;
+                                                                         rdfs:range <http://resourcedescription.tut.fi/ontology/capabilityModel#Capability> ;
+                                                                         rdfs:comment "This property refers to the generic capability this is an instantiation of." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#hasCapabilityUpdated
+<http://resourcedescription.tut.fi/ontology/resourceModel#hasCapabilityUpdated> rdf:type owl:ObjectProperty ;
+                                                                                rdfs:subPropertyOf <http://resourcedescription.tut.fi/ontology/resourceModel#hasCapability> ;
+                                                                                rdfs:domain <http://resourcedescription.tut.fi/ontology/resourceModel#IndividualDevice> .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#hasCellOrStation
+<http://resourcedescription.tut.fi/ontology/resourceModel#hasCellOrStation> rdf:type owl:ObjectProperty ;
+                                                                            rdfs:range [ rdf:type owl:Class ;
+                                                                                         owl:unionOf ( <http://resourcedescription.tut.fi/ontology/resourceModel#Cell>
+                                                                                                       <http://resourcedescription.tut.fi/ontology/resourceModel#Station>
+                                                                                                     )
+                                                                                       ] ;
+                                                                            rdfs:comment "This property defines the cells or stations that are included into the line." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#hasCoordinate
+<http://resourcedescription.tut.fi/ontology/resourceModel#hasCoordinate> rdf:type owl:ObjectProperty ;
+                                                                         rdfs:comment "This property defines the coordianate of the feature." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#hasDeviceBlueprint
+<http://resourcedescription.tut.fi/ontology/resourceModel#hasDeviceBlueprint> rdf:type owl:ObjectProperty ,
+                                                                                       owl:FunctionalProperty ;
+                                                                              rdfs:domain <http://resourcedescription.tut.fi/ontology/resourceModel#IndividualDevice> ;
+                                                                              rdfs:range <http://resourcedescription.tut.fi/ontology/resourceModel#DeviceBlueprint> ;
+                                                                              rdfs:comment "HasDeviceBlueprint links the individual device to the blueprint (i.e. template information)." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#hasIndividualDeviceOrDeviceCombination
+<http://resourcedescription.tut.fi/ontology/resourceModel#hasIndividualDeviceOrDeviceCombination> rdf:type owl:ObjectProperty ;
+                                                                                                  rdfs:comment "This property defines the individual devices and device combinations that forms the device combination or station." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#hasInterface
+<http://resourcedescription.tut.fi/ontology/resourceModel#hasInterface> rdf:type owl:ObjectProperty ;
+                                                                        rdfs:comment "This property defines the interfaces the actor has." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#hasLine
+<http://resourcedescription.tut.fi/ontology/resourceModel#hasLine> rdf:type owl:ObjectProperty ;
+                                                                   rdfs:domain <http://resourcedescription.tut.fi/ontology/resourceModel#Area> ;
+                                                                   rdfs:range <http://resourcedescription.tut.fi/ontology/resourceModel#Line> ;
+                                                                   rdfs:comment "This property indicates the lines that are located in the area." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#hasMaterialType
+<http://resourcedescription.tut.fi/ontology/resourceModel#hasMaterialType> rdf:type owl:ObjectProperty ,
+                                                                                    owl:FunctionalProperty ;
+                                                                           rdfs:range <http://resourcedescription.tut.fi/ontology/commonConcepts#MaterialType> .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#hasPerformance
+<http://resourcedescription.tut.fi/ontology/resourceModel#hasPerformance> rdf:type owl:ObjectProperty ,
+                                                                                   owl:FunctionalProperty ;
+                                                                          rdfs:domain <http://resourcedescription.tut.fi/ontology/resourceModel#DeviceBlueprint> ;
+                                                                          rdfs:range <http://resourcedescription.tut.fi/ontology/capabilityModel#Performance> ;
+                                                                          rdfs:comment "This property is used to link to the device to its performance details." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#hasPerformanceLevel
+<http://resourcedescription.tut.fi/ontology/resourceModel#hasPerformanceLevel> rdf:type owl:ObjectProperty ;
+                                                                               rdfs:range <http://resourcedescription.tut.fi/ontology/resourceModel#PerformanceLevel> ;
+                                                                               rdfs:comment "This property is used to refer to the performance level." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#hasPosition
+<http://resourcedescription.tut.fi/ontology/resourceModel#hasPosition> rdf:type owl:ObjectProperty ,
+                                                                                owl:FunctionalProperty ;
+                                                                       rdfs:comment "Location property defines the exact position of the entity." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#hasQualification
+<http://resourcedescription.tut.fi/ontology/resourceModel#hasQualification> rdf:type owl:ObjectProperty ;
+                                                                            rdfs:range <http://resourcedescription.tut.fi/ontology/resourceModel#Qualification> ;
+                                                                            rdfs:comment "This property is used to refer to a qualification." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#hasResource
+<http://resourcedescription.tut.fi/ontology/resourceModel#hasResource> rdf:type owl:ObjectProperty ;
+                                                                       rdfs:domain <http://resourcedescription.tut.fi/ontology/resourceModel#FactoryUnit> ;
+                                                                       rdfs:range <http://resourcedescription.tut.fi/ontology/resourceModel#Resource> ;
+                                                                       rdfs:comment "HasResources property defines the resources that belong to the given entity." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#hasStation
+<http://resourcedescription.tut.fi/ontology/resourceModel#hasStation> rdf:type owl:ObjectProperty ;
+                                                                      rdfs:range <http://resourcedescription.tut.fi/ontology/resourceModel#Station> ;
+                                                                      rdfs:comment "This property indicates which stations include to the given cell." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#isMadeOf
+<http://resourcedescription.tut.fi/ontology/resourceModel#isMadeOf> rdf:type owl:ObjectProperty ;
+                                                                    rdfs:range <http://resourcedescription.tut.fi/ontology/resourceModel#RawMaterial> ;
+                                                                    rdfs:comment "This property defines the raw material of the given part." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#precededBy
+<http://resourcedescription.tut.fi/ontology/resourceModel#precededBy> rdf:type owl:ObjectProperty ,
+                                                                               owl:FunctionalProperty ;
+                                                                      rdfs:comment "This property defines, which entity preceeds the current entity on the layout." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#requiresResource
+<http://resourcedescription.tut.fi/ontology/resourceModel#requiresResource> rdf:type owl:ObjectProperty ;
+                                                                            rdfs:range <http://resourcedescription.tut.fi/ontology/resourceModel#Resource> ;
+                                                                            rdfs:comment "Activity requires one or many resources. This property can be either pre-defined, or the proper resources can be reasoned based on the required and provided capabilities. In the latter case this property will be left empty." .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000073
+<http://www.co-ode.org/ontologies/ont.owl#GO6000073> rdf:type owl:ObjectProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Request> ;
+                                                     rdfs:range <http://www.co-ode.org/ontologies/ont.owl#Vendor> ;
+                                                     rdfs:label "isSentTo"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000074
+<http://www.co-ode.org/ontologies/ont.owl#GO6000074> rdf:type owl:ObjectProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Request> ;
+                                                     rdfs:range <http://www.co-ode.org/ontologies/ont.owl#Purchaser> ;
+                                                     rdfs:label "isIssuedBy"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000075
+<http://www.co-ode.org/ontologies/ont.owl#GO6000075> rdf:type owl:ObjectProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Purchaser> ;
+                                                     rdfs:range <http://resourcedescription.tut.fi/ontology/capabilityModel#Capability> ;
+                                                     rdfs:label "requestsFor"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000077
+<http://www.co-ode.org/ontologies/ont.owl#GO6000077> rdf:type owl:ObjectProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Purchaser> ;
+                                                     rdfs:range <http://www.co-ode.org/ontologies/ont.owl#Bids> ;
+                                                     rdfs:label "analyzes"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000078
+<http://www.co-ode.org/ontologies/ont.owl#GO6000078> rdf:type owl:ObjectProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Purchaser> ;
+                                                     rdfs:range <http://www.co-ode.org/ontologies/ont.owl#Contract> ;
+                                                     rdfs:label "assigns"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000079
+<http://www.co-ode.org/ontologies/ont.owl#GO6000079> rdf:type owl:ObjectProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Contract> ;
+                                                     rdfs:range <http://www.co-ode.org/ontologies/ont.owl#Vendor> ;
+                                                     rdfs:label "isAssignedTo"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000080
+<http://www.co-ode.org/ontologies/ont.owl#GO6000080> rdf:type owl:ObjectProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Vendor> ;
+                                                     rdfs:range <http://www.co-ode.org/ontologies/ont.owl#Bids> ;
+                                                     rdfs:label "submits"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000081
+<http://www.co-ode.org/ontologies/ont.owl#GO6000081> rdf:type owl:ObjectProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Purchaser> ;
+                                                     rdfs:range <http://www.co-ode.org/ontologies/ont.owl#Bids> ;
+                                                     rdfs:label "accepts"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000082
+<http://www.co-ode.org/ontologies/ont.owl#GO6000082> rdf:type owl:ObjectProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Purchaser> ;
+                                                     rdfs:range <http://www.co-ode.org/ontologies/ont.owl#Bids> ;
+                                                     rdfs:label "rejects"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000099
+<http://www.co-ode.org/ontologies/ont.owl#GO6000099> rdf:type owl:ObjectProperty ,
+                                                              owl:TransitiveProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#MarketEntity> ;
+                                                     rdfs:range <http://www.co-ode.org/ontologies/ont.owl#Location> ,
+                                                                <http://www.co-ode.org/ontologies/ont.owl#PointOfContact> ;
+                                                     rdfs:label "has"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000102
+<http://www.co-ode.org/ontologies/ont.owl#GO6000102> rdf:type owl:ObjectProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Request> ;
+                                                     rdfs:range <http://www.co-ode.org/ontologies/ont.owl#ServiceAttestation> ;
+                                                     rdfs:label "contains"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#certificate
+<http://resourcedescription.tut.fi/ontology/resourceModel#certificate> rdf:type owl:DatatypeProperty ;
+                                                                       rdfs:range xsd:string ;
+                                                                       rdfs:comment "Name of a certificate." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#entityID
+<http://resourcedescription.tut.fi/ontology/resourceModel#entityID> rdf:type owl:DatatypeProperty ,
+                                                                             owl:FunctionalProperty ;
+                                                                    rdfs:range xsd:string ;
+                                                                    rdfs:comment "entityID is a unique identifier of a given entity." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#experience_InYears
+<http://resourcedescription.tut.fi/ontology/resourceModel#experience_InYears> rdf:type owl:DatatypeProperty ,
+                                                                                       owl:FunctionalProperty ;
+                                                                              rdfs:range xsd:float ;
+                                                                              rdfs:comment """Exper
+ience in years.""" ,
+                                                                                           "Unit: Year (y)" .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#lotNumber
+<http://resourcedescription.tut.fi/ontology/resourceModel#lotNumber> rdf:type owl:DatatypeProperty ,
+                                                                              owl:FunctionalProperty ;
+                                                                     rdfs:domain <http://resourcedescription.tut.fi/ontology/resourceModel#RawMaterial> ;
+                                                                     rdfs:range xsd:string .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#materialID
+<http://resourcedescription.tut.fi/ontology/resourceModel#materialID> rdf:type owl:DatatypeProperty ,
+                                                                               owl:FunctionalProperty ;
+                                                                      rdfs:range xsd:string .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#materialType
+<http://resourcedescription.tut.fi/ontology/resourceModel#materialType> rdf:type owl:DatatypeProperty ,
+                                                                                 owl:FunctionalProperty ;
+                                                                        rdfs:range xsd:string .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#measurementType
+<http://resourcedescription.tut.fi/ontology/resourceModel#measurementType> rdf:type owl:DatatypeProperty ;
+                                                                           rdfs:range xsd:string ;
+                                                                           rdfs:comment "This property defines what is measured." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#orient_I
+<http://resourcedescription.tut.fi/ontology/resourceModel#orient_I> rdf:type owl:DatatypeProperty ,
+                                                                             owl:FunctionalProperty ;
+                                                                    rdfs:range xsd:float ;
+                                                                    rdfs:comment "This property defines the X vector component of the orientation axis." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#orient_J
+<http://resourcedescription.tut.fi/ontology/resourceModel#orient_J> rdf:type owl:DatatypeProperty ,
+                                                                             owl:FunctionalProperty ;
+                                                                    rdfs:range xsd:float ;
+                                                                    rdfs:comment "This property defines the Y vector component of the orientation axis." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#orient_K
+<http://resourcedescription.tut.fi/ontology/resourceModel#orient_K> rdf:type owl:DatatypeProperty ,
+                                                                             owl:FunctionalProperty ;
+                                                                    rdfs:range xsd:float ;
+                                                                    rdfs:comment "This property defines the Z vector component of the orientation axis." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#orient_Q
+<http://resourcedescription.tut.fi/ontology/resourceModel#orient_Q> rdf:type owl:DatatypeProperty ,
+                                                                             owl:FunctionalProperty ;
+                                                                    rdfs:range xsd:float ;
+                                                                    rdfs:comment "?" .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#posX
+<http://resourcedescription.tut.fi/ontology/resourceModel#posX> rdf:type owl:DatatypeProperty ,
+                                                                         owl:FunctionalProperty ;
+                                                                rdfs:range xsd:float ;
+                                                                rdfs:comment "posX tells the value of X coordinate." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#posY
+<http://resourcedescription.tut.fi/ontology/resourceModel#posY> rdf:type owl:DatatypeProperty ,
+                                                                         owl:FunctionalProperty ;
+                                                                rdfs:range xsd:float ;
+                                                                rdfs:comment "posY tells the value of Y coordinate." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#posZ
+<http://resourcedescription.tut.fi/ontology/resourceModel#posZ> rdf:type owl:DatatypeProperty ,
+                                                                         owl:FunctionalProperty ;
+                                                                rdfs:range xsd:float ;
+                                                                rdfs:comment "posZ tells the value of Z coordinate." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#resourceDescriptionURL
+<http://resourcedescription.tut.fi/ontology/resourceModel#resourceDescriptionURL> rdf:type owl:DatatypeProperty ;
+                                                                                  rdfs:range xsd:string ;
+                                                                                  rdfs:comment """<p style=\"margin-top: 0\">
+      fd
+    </p>""" .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000033
+<http://www.co-ode.org/ontologies/ont.owl#GO6000033> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#MarketEntity> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "RegistrationNo"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000040
+<http://www.co-ode.org/ontologies/ont.owl#GO6000040> rdf:type owl:DatatypeProperty ;
+                                                     owl:equivalentProperty <http://www.co-ode.org/ontologies/ont.owl#GO6000091> ,
+                                                                            <http://www.co-ode.org/ontologies/ont.owl#GO6000092> ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#MarketEntity> ,
+                                                                 <http://www.co-ode.org/ontologies/ont.owl#PointOfContact> ,
+                                                                 <http://www.co-ode.org/ontologies/ont.owl#Request> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "MarketEntityID"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000041
+<http://www.co-ode.org/ontologies/ont.owl#GO6000041> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Bids> ,
+                                                                 <http://www.co-ode.org/ontologies/ont.owl#Request> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "RFxID"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000042
+<http://www.co-ode.org/ontologies/ont.owl#GO6000042> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Request> ;
+                                                     rdfs:range xsd:dateTimeStamp ;
+                                                     rdfs:label "IssueDate"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000043
+<http://www.co-ode.org/ontologies/ont.owl#GO6000043> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Request> ;
+                                                     rdfs:range xsd:dateTimeStamp ;
+                                                     rdfs:label "Deadline"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000044
+<http://www.co-ode.org/ontologies/ont.owl#GO6000044> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#ServiceAttestation> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "AttestationDescription"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000045
+<http://www.co-ode.org/ontologies/ont.owl#GO6000045> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Bids> ,
+                                                                 <http://www.co-ode.org/ontologies/ont.owl#Contract> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "BidID"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000046
+<http://www.co-ode.org/ontologies/ont.owl#GO6000046> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Bids> ;
+                                                     rdfs:range xsd:double ;
+                                                     rdfs:label "BidAmount"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000048
+<http://www.co-ode.org/ontologies/ont.owl#GO6000048> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Bids> ;
+                                                     rdfs:range xsd:int ;
+                                                     rdfs:label "LeadTime"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000049
+<http://www.co-ode.org/ontologies/ont.owl#GO6000049> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Contract> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "ContractID"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000050
+<http://www.co-ode.org/ontologies/ont.owl#GO6000050> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Contract> ;
+                                                     rdfs:range xsd:dateTimeStamp ;
+                                                     rdfs:label "ContractIssueDate"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000053
+<http://www.co-ode.org/ontologies/ont.owl#GO6000053> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Location> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "AddressLine1"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000054
+<http://www.co-ode.org/ontologies/ont.owl#GO6000054> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Location> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "AddressLine2"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000055
+<http://www.co-ode.org/ontologies/ont.owl#GO6000055> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Location> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "City"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000056
+<http://www.co-ode.org/ontologies/ont.owl#GO6000056> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Location> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "State"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000057
+<http://www.co-ode.org/ontologies/ont.owl#GO6000057> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Location> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "Country"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000058
+<http://www.co-ode.org/ontologies/ont.owl#GO6000058> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#PointOfContact> ;
+                                                     rdfs:range xsd:integer ;
+                                                     rdfs:label "Phone"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000059
+<http://www.co-ode.org/ontologies/ont.owl#GO6000059> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#PointOfContact> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "Extension"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000060
+<http://www.co-ode.org/ontologies/ont.owl#GO6000060> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#RFI> ,
+                                                                 <http://www.co-ode.org/ontologies/ont.owl#ServiceAttestation> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "AttestationTitle"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000061
+<http://www.co-ode.org/ontologies/ont.owl#GO6000061> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#ServiceAttestation> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "TestMethod"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000062
+<http://www.co-ode.org/ontologies/ont.owl#GO6000062> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#ServiceAttestation> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "TestResult"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000063
+<http://www.co-ode.org/ontologies/ont.owl#GO6000063> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#ServiceAttestation> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "Signature"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000065
+<http://www.co-ode.org/ontologies/ont.owl#GO6000065> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#MarketEntity> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "Email"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000067
+<http://www.co-ode.org/ontologies/ont.owl#GO6000067> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#PointOfContact> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "PointOfContactEmail"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000068
+<http://www.co-ode.org/ontologies/ont.owl#GO6000068> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#MarketEntity> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "MarketEntityName"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000070
+<http://www.co-ode.org/ontologies/ont.owl#GO6000070> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#PointOfContact> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "PointOfContactName"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000071
+<http://www.co-ode.org/ontologies/ont.owl#GO6000071> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#ServiceAttestation> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "AuthorizerName"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000072
+<http://www.co-ode.org/ontologies/ont.owl#GO6000072> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#ServiceAttestation> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "TesterName"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000088
+<http://www.co-ode.org/ontologies/ont.owl#GO6000088> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Contract> ;
+                                                     rdfs:range xsd:dateTimeStamp ;
+                                                     rdfs:label "ContractStartDate"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000089
+<http://www.co-ode.org/ontologies/ont.owl#GO6000089> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Contract> ;
+                                                     rdfs:range xsd:dateTimeStamp ;
+                                                     rdfs:label "ContractEndDate"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000090
+<http://www.co-ode.org/ontologies/ont.owl#GO6000090> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Request> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "Description"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000091
+<http://www.co-ode.org/ontologies/ont.owl#GO6000091> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#RFI> ,
+                                                                 <http://www.co-ode.org/ontologies/ont.owl#RFP> ,
+                                                                 <http://www.co-ode.org/ontologies/ont.owl#RFQ> ,
+                                                                 <http://www.co-ode.org/ontologies/ont.owl#RFT> ,
+                                                                 <http://www.co-ode.org/ontologies/ont.owl#Request> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "PurchaserID"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000092
+<http://www.co-ode.org/ontologies/ont.owl#GO6000092> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#RFP> ,
+                                                                 <http://www.co-ode.org/ontologies/ont.owl#RFQ> ,
+                                                                 <http://www.co-ode.org/ontologies/ont.owl#RFT> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "VendorID"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000093
+<http://www.co-ode.org/ontologies/ont.owl#GO6000093> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#RFI> ,
+                                                                 <http://www.co-ode.org/ontologies/ont.owl#RFP> ,
+                                                                 <http://www.co-ode.org/ontologies/ont.owl#RFQ> ,
+                                                                 <http://www.co-ode.org/ontologies/ont.owl#RFT> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "Subject"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000094
+<http://www.co-ode.org/ontologies/ont.owl#GO6000094> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#RFI> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "Background"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000095
+<http://www.co-ode.org/ontologies/ont.owl#GO6000095> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#RFI> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "Purpose"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000096
+<http://www.co-ode.org/ontologies/ont.owl#GO6000096> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#RFQ> ;
+                                                     rdfs:range xsd:integer ;
+                                                     rdfs:label "Quantity"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000097
+<http://www.co-ode.org/ontologies/ont.owl#GO6000097> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#RFP> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "Terms&Conditions"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000098
+<http://www.co-ode.org/ontologies/ont.owl#GO6000098> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#RFP> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "EvaluationCriteria"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000100
+<http://www.co-ode.org/ontologies/ont.owl#GO6000100> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#RFQ> ;
+                                                     rdfs:range xsd:double ;
+                                                     rdfs:label "Cost"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GO6000101
+<http://www.co-ode.org/ontologies/ont.owl#GO6000101> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#RFQ> ,
+                                                                 <http://www.co-ode.org/ontologies/ont.owl#RFT> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "Quality"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://resourcedescription.tut.fi/ontology/resourceInterfaceModel#InterfaceDefinition
+<http://resourcedescription.tut.fi/ontology/resourceInterfaceModel#InterfaceDefinition> rdf:type owl:Class .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#Area
+<http://resourcedescription.tut.fi/ontology/resourceModel#Area> rdf:type owl:Class ;
+                                                                rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#FactoryUnit> ,
+                                                                                [ rdf:type owl:Restriction ;
+                                                                                  owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasLine> ;
+                                                                                  owl:allValuesFrom <http://resourcedescription.tut.fi/ontology/resourceModel#Line>
+                                                                                ] ;
+                                                                rdfs:comment "Class Area refers to a place where the assembly or manufacturing takes place." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#AssemblyQualification
+<http://resourcedescription.tut.fi/ontology/resourceModel#AssemblyQualification> rdf:type owl:Class ;
+                                                                                 rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#Qualification> ;
+                                                                                 rdfs:comment "Ability to perform assembly operations." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#Cell
+<http://resourcedescription.tut.fi/ontology/resourceModel#Cell> rdf:type owl:Class ;
+                                                                rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#FactoryUnit> ,
+                                                                                [ rdf:type owl:Restriction ;
+                                                                                  owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#adjacentTo> ;
+                                                                                  owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                                                      owl:unionOf ( <http://resourcedescription.tut.fi/ontology/resourceModel#Cell>
+                                                                                                                    <http://resourcedescription.tut.fi/ontology/resourceModel#Station>
+                                                                                                                  )
+                                                                                                    ]
+                                                                                ] ,
+                                                                                [ rdf:type owl:Restriction ;
+                                                                                  owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#connectedTo> ;
+                                                                                  owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                                                      owl:unionOf ( <http://resourcedescription.tut.fi/ontology/resourceModel#Cell>
+                                                                                                                    <http://resourcedescription.tut.fi/ontology/resourceModel#Station>
+                                                                                                                  )
+                                                                                                    ]
+                                                                                ] ,
+                                                                                [ rdf:type owl:Restriction ;
+                                                                                  owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasStation> ;
+                                                                                  owl:allValuesFrom <http://resourcedescription.tut.fi/ontology/resourceModel#Station>
+                                                                                ] ,
+                                                                                [ rdf:type owl:Restriction ;
+                                                                                  owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#precededBy> ;
+                                                                                  owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                                                      owl:unionOf ( <http://resourcedescription.tut.fi/ontology/resourceModel#Cell>
+                                                                                                                    <http://resourcedescription.tut.fi/ontology/resourceModel#Station>
+                                                                                                                  )
+                                                                                                    ]
+                                                                                ] ,
+                                                                                [ rdf:type owl:Restriction ;
+                                                                                  owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasPosition> ;
+                                                                                  owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                ] ;
+                                                                rdfs:comment "Class Cell refers to the cell where the manufacturing or assembly takes place. Cell can be either product-oriented or process-oriented cell. Process-oriented cell may consist of multiple machines providing similar process capabilities. Product-oriented cell in contrary consist of resources targeted to manufacture certain entiretys of the product (e.g. sub-assembies)." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#Competence
+<http://resourcedescription.tut.fi/ontology/resourceModel#Competence> rdf:type owl:Class ;
+                                                                      rdfs:comment """Competence class is meant for storing information related to human competences
+.""" .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#ControlDevice
+<http://resourcedescription.tut.fi/ontology/resourceModel#ControlDevice> rdf:type owl:Class ;
+                                                                         rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#DeviceBlueprint> ;
+                                                                         rdfs:comment "ControlDevice class includes the catalogue information of control devices." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#Device
+<http://resourcedescription.tut.fi/ontology/resourceModel#Device> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#Resource> ,
+                                                                                  [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#resourceDescriptionURL> ;
+                                                                                    owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                  ] ;
+                                                                  rdfs:comment "Device class includes any machines, equipments and tools used to manufacture or assemble a product. Devices can be either catalogue devices (blueprints) or actual individual devices and combinations of them." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#DeviceBlueprint
+<http://resourcedescription.tut.fi/ontology/resourceModel#DeviceBlueprint> rdf:type owl:Class ;
+                                                                           rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#Device> ,
+                                                                                           [ rdf:type owl:Restriction ;
+                                                                                             owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasCapability> ;
+                                                                                             owl:allValuesFrom <http://resourcedescription.tut.fi/ontology/capabilityModel#Capability>
+                                                                                           ] ,
+                                                                                           [ rdf:type owl:Restriction ;
+                                                                                             owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasInterface> ;
+                                                                                             owl:allValuesFrom <http://resourcedescription.tut.fi/ontology/resourceInterfaceModel#InterfaceDefinition>
+                                                                                           ] ,
+                                                                                           [ rdf:type owl:Restriction ;
+                                                                                             owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasCapability> ;
+                                                                                             owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                                                                           ] ,
+                                                                                           [ rdf:type owl:Restriction ;
+                                                                                             owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasBasicResourceInformation> ;
+                                                                                             owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                           ] ,
+                                                                                           [ rdf:type owl:Restriction ;
+                                                                                             owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasPerformance> ;
+                                                                                             owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                                                           ] ;
+                                                                           owl:disjointWith <http://resourcedescription.tut.fi/ontology/resourceModel#Person> ;
+                                                                           rdfs:comment """DeviceBlueprint class is a super class for different kind of devices. Blueprint contains the catalogue information of devices. This class have several subclasses for different categories of devices.
+DeviceBlueprint corresponds to \"Resource Description\" in ReCaM approach.""" .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#DeviceCombination
+<http://resourcedescription.tut.fi/ontology/resourceModel#DeviceCombination> rdf:type owl:Class ;
+                                                                             rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#Resource> ,
+                                                                                             [ rdf:type owl:Restriction ;
+                                                                                               owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasCalculatedCapability> ;
+                                                                                               owl:allValuesFrom <http://resourcedescription.tut.fi/ontology/capabilityModel#Capability>
+                                                                                             ] ,
+                                                                                             [ rdf:type owl:Restriction ;
+                                                                                               owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasCalculatedCapability> ;
+                                                                                               owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                                                                             ] ;
+                                                                             rdfs:comment """DeviceCombination is a parent class for real and test device 
+combinations.""" .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#FactoryUnit
+<http://resourcedescription.tut.fi/ontology/resourceModel#FactoryUnit> rdf:type owl:Class ;
+                                                                       rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#Resource> ,
+                                                                                       [ rdf:type owl:Restriction ;
+                                                                                         owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasCalculatedCapability> ;
+                                                                                         owl:allValuesFrom <http://resourcedescription.tut.fi/ontology/capabilityModel#Capability>
+                                                                                       ] ,
+                                                                                       [ rdf:type owl:Restriction ;
+                                                                                         owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasResource> ;
+                                                                                         owl:allValuesFrom <http://resourcedescription.tut.fi/ontology/resourceModel#Resource>
+                                                                                       ] ;
+                                                                       rdfs:comment "FactoryUnit class refers to the place where the operations take place. It is a parent class for other area-related classes." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#FeedingDevice
+<http://resourcedescription.tut.fi/ontology/resourceModel#FeedingDevice> rdf:type owl:Class ;
+                                                                         rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#DeviceBlueprint> ;
+                                                                         rdfs:comment """This class
+ is for storing feeding devices.""" .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#FixturingDevice
+<http://resourcedescription.tut.fi/ontology/resourceModel#FixturingDevice> rdf:type owl:Class ;
+                                                                           rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#DeviceBlueprint> ;
+                                                                           rdfs:comment "This class defines the catalogue information of fixturing devices." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#GraspingDevice
+<http://resourcedescription.tut.fi/ontology/resourceModel#GraspingDevice> rdf:type owl:Class ;
+                                                                          rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#DeviceBlueprint> ;
+                                                                          rdfs:comment """This class
+ is used to store information related to grasping devices.""" .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#IndividualControlDevice
+<http://resourcedescription.tut.fi/ontology/resourceModel#IndividualControlDevice> rdf:type owl:Class ;
+                                                                                   rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#IndividualDevice> ,
+                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                     owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasDeviceBlueprint> ;
+                                                                                                     owl:allValuesFrom <http://resourcedescription.tut.fi/ontology/resourceModel#ControlDevice>
+                                                                                                   ] .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#IndividualDevice
+<http://resourcedescription.tut.fi/ontology/resourceModel#IndividualDevice> rdf:type owl:Class ;
+                                                                            rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#Device> ,
+                                                                                            [ rdf:type owl:Restriction ;
+                                                                                              owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasCapabilityUpdated> ;
+                                                                                              owl:allValuesFrom <http://resourcedescription.tut.fi/ontology/capabilityModel#Capability>
+                                                                                            ] ,
+                                                                                            [ rdf:type owl:Restriction ;
+                                                                                              owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasDeviceBlueprint> ;
+                                                                                              owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                            ] ;
+                                                                            rdfs:comment """InvidualDevice is an actual individual device existing on the factory floor. The individual devices have reference to the DeviceBlueprint. This class stores the lifecycle information of the devices and updates the capability properties.
+This class corresponds to the \"Resource Instance Description\" in ReCaM approach.""" .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#IndividualFeedingDevice
+<http://resourcedescription.tut.fi/ontology/resourceModel#IndividualFeedingDevice> rdf:type owl:Class ;
+                                                                                   rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#IndividualDevice> ,
+                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                     owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasDeviceBlueprint> ;
+                                                                                                     owl:allValuesFrom <http://resourcedescription.tut.fi/ontology/resourceModel#FeedingDevice>
+                                                                                                   ] .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#IndividualFixturingDevice
+<http://resourcedescription.tut.fi/ontology/resourceModel#IndividualFixturingDevice> rdf:type owl:Class ;
+                                                                                     rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#IndividualDevice> ,
+                                                                                                     [ rdf:type owl:Restriction ;
+                                                                                                       owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasDeviceBlueprint> ;
+                                                                                                       owl:allValuesFrom <http://resourcedescription.tut.fi/ontology/resourceModel#FixturingDevice>
+                                                                                                     ] .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#IndividualGraspingDevice
+<http://resourcedescription.tut.fi/ontology/resourceModel#IndividualGraspingDevice> rdf:type owl:Class ;
+                                                                                    rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#IndividualDevice> ,
+                                                                                                    [ rdf:type owl:Restriction ;
+                                                                                                      owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasDeviceBlueprint> ;
+                                                                                                      owl:allValuesFrom <http://resourcedescription.tut.fi/ontology/resourceModel#GraspingDevice>
+                                                                                                    ] .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#IndividualJoiningDevice
+<http://resourcedescription.tut.fi/ontology/resourceModel#IndividualJoiningDevice> rdf:type owl:Class ;
+                                                                                   rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#IndividualDevice> ,
+                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                     owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasDeviceBlueprint> ;
+                                                                                                     owl:allValuesFrom <http://resourcedescription.tut.fi/ontology/resourceModel#JoiningDevice>
+                                                                                                   ] .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#IndividualModifyingDevice
+<http://resourcedescription.tut.fi/ontology/resourceModel#IndividualModifyingDevice> rdf:type owl:Class ;
+                                                                                     rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#IndividualDevice> ,
+                                                                                                     [ rdf:type owl:Restriction ;
+                                                                                                       owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasDeviceBlueprint> ;
+                                                                                                       owl:allValuesFrom <http://resourcedescription.tut.fi/ontology/resourceModel#ModifyingDevice>
+                                                                                                     ] .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#IndividualMovingDevice
+<http://resourcedescription.tut.fi/ontology/resourceModel#IndividualMovingDevice> rdf:type owl:Class ;
+                                                                                  rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#IndividualDevice> ,
+                                                                                                  [ rdf:type owl:Restriction ;
+                                                                                                    owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasDeviceBlueprint> ;
+                                                                                                    owl:allValuesFrom <http://resourcedescription.tut.fi/ontology/resourceModel#MovingDevice>
+                                                                                                  ] .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#IndividualSimpleDevice
+<http://resourcedescription.tut.fi/ontology/resourceModel#IndividualSimpleDevice> rdf:type owl:Class ;
+                                                                                  rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#IndividualDevice> ,
+                                                                                                  [ rdf:type owl:Restriction ;
+                                                                                                    owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasDeviceBlueprint> ;
+                                                                                                    owl:allValuesFrom <http://resourcedescription.tut.fi/ontology/resourceModel#SimpleDevice>
+                                                                                                  ] .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#IndividualStorageDevice
+<http://resourcedescription.tut.fi/ontology/resourceModel#IndividualStorageDevice> rdf:type owl:Class ;
+                                                                                   rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#IndividualDevice> ,
+                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                     owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasDeviceBlueprint> ;
+                                                                                                     owl:allValuesFrom <http://resourcedescription.tut.fi/ontology/resourceModel#StorageDevice>
+                                                                                                   ] .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#IndividualToolingDevice
+<http://resourcedescription.tut.fi/ontology/resourceModel#IndividualToolingDevice> rdf:type owl:Class ;
+                                                                                   rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#IndividualDevice> ,
+                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                     owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasDeviceBlueprint> ;
+                                                                                                     owl:allValuesFrom <http://resourcedescription.tut.fi/ontology/resourceModel#ToolingDevice>
+                                                                                                   ] .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#JoiningDevice
+<http://resourcedescription.tut.fi/ontology/resourceModel#JoiningDevice> rdf:type owl:Class ;
+                                                                         rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#DeviceBlueprint> ;
+                                                                         rdfs:comment """This class is for storing information related to different kind of 
+joining devices. These may be for 
+example screwdrivers or riveting machines.""" .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#Line
+<http://resourcedescription.tut.fi/ontology/resourceModel#Line> rdf:type owl:Class ;
+                                                                rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#FactoryUnit> ,
+                                                                                [ rdf:type owl:Restriction ;
+                                                                                  owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasCellOrStation> ;
+                                                                                  owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                                                      owl:unionOf ( <http://resourcedescription.tut.fi/ontology/resourceModel#Cell>
+                                                                                                                    <http://resourcedescription.tut.fi/ontology/resourceModel#Station>
+                                                                                                                  )
+                                                                                                    ]
+                                                                                ] ,
+                                                                                [ rdf:type owl:Restriction ;
+                                                                                  owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasPosition> ;
+                                                                                  owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                ] ;
+                                                                rdfs:comment "Class Line refers to the production line where the manufacturing or assembly takes place. Line can consist of multiple cells and stations." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#MachineToolQualification
+<http://resourcedescription.tut.fi/ontology/resourceModel#MachineToolQualification> rdf:type owl:Class ;
+                                                                                    rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#Qualification> ;
+                                                                                    rdfs:comment "Ability to operate machine tools." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#ModifyingDevice
+<http://resourcedescription.tut.fi/ontology/resourceModel#ModifyingDevice> rdf:type owl:Class ;
+                                                                           rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#DeviceBlueprint> ;
+                                                                           rdfs:comment "ModifyingDevice class defines the catalogue information of different devices that are able to modify material, such as milling or turning machines." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#MovingDevice
+<http://resourcedescription.tut.fi/ontology/resourceModel#MovingDevice> rdf:type owl:Class ;
+                                                                        rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#DeviceBlueprint> ;
+                                                                        rdfs:comment "MovingDevice class contains the catalogue information for devices which are able to move items, such as robots or conveyors." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#PerformanceLevel
+<http://resourcedescription.tut.fi/ontology/resourceModel#PerformanceLevel> rdf:type owl:Class ;
+                                                                            owl:equivalentClass [ rdf:type owl:Class ;
+                                                                                                  owl:oneOf ( <http://resourcedescription.tut.fi/ontology/resourceModel#adequate>
+                                                                                                              <http://resourcedescription.tut.fi/ontology/resourceModel#expert>
+                                                                                                              <http://resourcedescription.tut.fi/ontology/resourceModel#intermediate>
+                                                                                                            )
+                                                                                                ] ;
+                                                                            rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#Competence> ,
+                                                                                            [ rdf:type owl:Restriction ;
+                                                                                              owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasCapability> ;
+                                                                                              owl:someValuesFrom <http://resourcedescription.tut.fi/ontology/capabilityModel#Capability>
+                                                                                            ] ,
+                                                                                            [ rdf:type owl:Restriction ;
+                                                                                              owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasCapability> ;
+                                                                                              owl:allValuesFrom <http://resourcedescription.tut.fi/ontology/capabilityModel#Capability>
+                                                                                            ] ;
+                                                                            rdfs:comment """PerformanceLevel class is used to store information related to the level 
+of performance (expert, intermediate or adequate) that human operator may have in terms of the normal human 
+capabilities .""" .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#Person
+<http://resourcedescription.tut.fi/ontology/resourceModel#Person> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#Resource> ,
+                                                                                  [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasPerformanceLevel> ;
+                                                                                    owl:allValuesFrom <http://resourcedescription.tut.fi/ontology/resourceModel#PerformanceLevel>
+                                                                                  ] ,
+                                                                                  [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasQualification> ;
+                                                                                    owl:allValuesFrom <http://resourcedescription.tut.fi/ontology/resourceModel#Qualification>
+                                                                                  ] ,
+                                                                                  [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasInterface> ;
+                                                                                    owl:hasValue <http://resourcedescription.tut.fi/ontology/resourceInterfaceModel#human_interaction_general>
+                                                                                  ] ,
+                                                                                  [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasPerformanceLevel> ;
+                                                                                    owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                  ] ,
+                                                                                  [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#resourceDescriptionURL> ;
+                                                                                    owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                                                  ] ;
+                                                                  rdfs:comment "Person class refers to any human operator or other human resource." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#Qualification
+<http://resourcedescription.tut.fi/ontology/resourceModel#Qualification> rdf:type owl:Class ;
+                                                                         rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#Competence> ,
+                                                                                         [ rdf:type owl:Restriction ;
+                                                                                           owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#certificate> ;
+                                                                                           owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                                                                         ] ,
+                                                                                         [ rdf:type owl:Restriction ;
+                                                                                           owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#experience_InYears> ;
+                                                                                           owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                         ] ;
+                                                                         rdfs:comment """Qualification class is used to store information related to different 
+qualifications that a person may have. It is the parent class of various 
+qualification related classes.
+NOTE: This clss is under construction. More sub-classes are expected to be added, and more properties attached to the classes.""" .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#RawMaterial
+<http://resourcedescription.tut.fi/ontology/resourceModel#RawMaterial> rdf:type owl:Class ;
+                                                                       rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#Resource> ,
+                                                                                       [ rdf:type owl:Restriction ;
+                                                                                         owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasMaterialType> ;
+                                                                                         owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                       ] ,
+                                                                                       [ rdf:type owl:Restriction ;
+                                                                                         owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#lotNumber> ;
+                                                                                         owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                       ] ;
+                                                                       rdfs:comment "Class RawMaterial represents the material resources of  the company/entity (e.g. material from which the product element is fabricated)." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#RealDeviceCombination
+<http://resourcedescription.tut.fi/ontology/resourceModel#RealDeviceCombination> rdf:type owl:Class ;
+                                                                                 rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#DeviceCombination> ,
+                                                                                                 [ rdf:type owl:Restriction ;
+                                                                                                   owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasIndividualDeviceOrDeviceCombination> ;
+                                                                                                   owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                                                                       owl:unionOf ( <http://resourcedescription.tut.fi/ontology/resourceModel#IndividualDevice>
+                                                                                                                                     <http://resourcedescription.tut.fi/ontology/resourceModel#Person>
+                                                                                                                                     <http://resourcedescription.tut.fi/ontology/resourceModel#RealDeviceCombination>
+                                                                                                                                   )
+                                                                                                                     ]
+                                                                                                 ] ,
+                                                                                                 [ rdf:type owl:Restriction ;
+                                                                                                   owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasIndividualDeviceOrDeviceCombination> ;
+                                                                                                   owl:minCardinality "2"^^xsd:nonNegativeInteger
+                                                                                                 ] ;
+                                                                                 rdfs:comment "RealDeviceCombination class includes combinations of multiple individual devices." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#Resource
+<http://resourcedescription.tut.fi/ontology/resourceModel#Resource> rdf:type owl:Class ;
+                                                                    rdfs:subClassOf owl:Thing ,
+                                                                                    [ rdf:type owl:Restriction ;
+                                                                                      owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#entityID> ;
+                                                                                      owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                    ] ;
+                                                                    rdfs:comment "Class Resource refers to any physical or virtual resource that is used for assembling or manufacturing a product element or providing a certain service." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#SimpleDevice
+<http://resourcedescription.tut.fi/ontology/resourceModel#SimpleDevice> rdf:type owl:Class ;
+                                                                        rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#DeviceBlueprint> ;
+                                                                        rdfs:comment "SimpleDevice class is for catalogue information of simple devices, such as tools." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#Site
+<http://resourcedescription.tut.fi/ontology/resourceModel#Site> rdf:type owl:Class ;
+                                                                rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#FactoryUnit> ,
+                                                                                [ rdf:type owl:Restriction ;
+                                                                                  owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasArea> ;
+                                                                                  owl:allValuesFrom <http://resourcedescription.tut.fi/ontology/resourceModel#Area>
+                                                                                ] ;
+                                                                rdfs:comment "Class site refers to a complete factory where the manufacturing or assemlby takes place. Factory = Site (ANSI/ISA95)" .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#Software
+<http://resourcedescription.tut.fi/ontology/resourceModel#Software> rdf:type owl:Class ;
+                                                                    rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#Resource> ;
+                                                                    rdfs:comment "Software class is for storing the codes and sofwares for the machines (for example G-code, code for robot or any other SW agent)." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#Station
+<http://resourcedescription.tut.fi/ontology/resourceModel#Station> rdf:type owl:Class ;
+                                                                   rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#FactoryUnit> ,
+                                                                                   [ rdf:type owl:Restriction ;
+                                                                                     owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#adjacentTo> ;
+                                                                                     owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                                                         owl:unionOf ( <http://resourcedescription.tut.fi/ontology/resourceModel#Cell>
+                                                                                                                       <http://resourcedescription.tut.fi/ontology/resourceModel#Station>
+                                                                                                                     )
+                                                                                                       ]
+                                                                                   ] ,
+                                                                                   [ rdf:type owl:Restriction ;
+                                                                                     owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#connectedTo> ;
+                                                                                     owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                                                         owl:unionOf ( <http://resourcedescription.tut.fi/ontology/resourceModel#Cell>
+                                                                                                                       <http://resourcedescription.tut.fi/ontology/resourceModel#Station>
+                                                                                                                     )
+                                                                                                       ]
+                                                                                   ] ,
+                                                                                   [ rdf:type owl:Restriction ;
+                                                                                     owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasIndividualDeviceOrDeviceCombination> ;
+                                                                                     owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                                                         owl:unionOf ( <http://resourcedescription.tut.fi/ontology/resourceModel#IndividualDevice>
+                                                                                                                       <http://resourcedescription.tut.fi/ontology/resourceModel#RealDeviceCombination>
+                                                                                                                     )
+                                                                                                       ]
+                                                                                   ] ,
+                                                                                   [ rdf:type owl:Restriction ;
+                                                                                     owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#precededBy> ;
+                                                                                     owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                                                         owl:unionOf ( <http://resourcedescription.tut.fi/ontology/resourceModel#Cell>
+                                                                                                                       <http://resourcedescription.tut.fi/ontology/resourceModel#Station>
+                                                                                                                     )
+                                                                                                       ]
+                                                                                   ] ,
+                                                                                   [ rdf:type owl:Restriction ;
+                                                                                     owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasIndividualDeviceOrDeviceCombination> ;
+                                                                                     owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                                                                   ] ,
+                                                                                   [ rdf:type owl:Restriction ;
+                                                                                     owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasPosition> ;
+                                                                                     owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                                                   ] ;
+                                                                   rdfs:comment "Station class refers to a station where the manufacturing or assembly takes place. Station refers to one unit in the system, where certain operations can be completed. Cell can contain multiple stations." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#StorageDevice
+<http://resourcedescription.tut.fi/ontology/resourceModel#StorageDevice> rdf:type owl:Class ;
+                                                                         rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#DeviceBlueprint> ;
+                                                                         rdfs:comment "StorageDevice class contains catalogue information of storaging devices." .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#TestDeviceCombination
+<http://resourcedescription.tut.fi/ontology/resourceModel#TestDeviceCombination> rdf:type owl:Class ;
+                                                                                 rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#DeviceCombination> ,
+                                                                                                 [ rdf:type owl:Restriction ;
+                                                                                                   owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasIndividualDeviceOrDeviceCombination> ;
+                                                                                                   owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                                                                       owl:unionOf ( <http://resourcedescription.tut.fi/ontology/resourceModel#DeviceBlueprint>
+                                                                                                                                     <http://resourcedescription.tut.fi/ontology/resourceModel#IndividualDevice>
+                                                                                                                                     <http://resourcedescription.tut.fi/ontology/resourceModel#Person>
+                                                                                                                                     <http://resourcedescription.tut.fi/ontology/resourceModel#RealDeviceCombination>
+                                                                                                                                     <http://resourcedescription.tut.fi/ontology/resourceModel#TestDeviceCombination>
+                                                                                                                                   )
+                                                                                                                     ]
+                                                                                                 ] ,
+                                                                                                 [ rdf:type owl:Restriction ;
+                                                                                                   owl:onProperty <http://resourcedescription.tut.fi/ontology/resourceModel#hasIndividualDeviceOrDeviceCombination> ;
+                                                                                                   owl:minCardinality "2"^^xsd:nonNegativeInteger
+                                                                                                 ] ;
+                                                                                 rdfs:comment """This class is storing the virtual device combinations which are not 
+existing in the real world, but which are used to test different  combinations to the capability matchmaking purposes. Thus, it may  include also combinations of resources which are only in catalogues, not really existing on the factory floor.""" .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#ToolingDevice
+<http://resourcedescription.tut.fi/ontology/resourceModel#ToolingDevice> rdf:type owl:Class ;
+                                                                         rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#DeviceBlueprint> .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#WeldingQualification
+<http://resourcedescription.tut.fi/ontology/resourceModel#WeldingQualification> rdf:type owl:Class ;
+                                                                                rdfs:subClassOf <http://resourcedescription.tut.fi/ontology/resourceModel#Qualification> ;
+                                                                                rdfs:comment "Ability to perform welding operation." .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Bids
+<http://www.co-ode.org/ontologies/ont.owl#Bids> rdf:type owl:Class ;
+                                                rdfs:comment "Bids class is used to keep a track of all the biddings done by the vendors corresponding to the various RFQ, RFP, and RFT generated by a purchaser." ;
+                                                rdfs:label "Bids"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Contract
+<http://www.co-ode.org/ontologies/ont.owl#Contract> rdf:type owl:Class ;
+                                                    rdfs:comment "The end result of the requests(RFQ) in manufacturing domain results in the creation of a contract between the purchaser and the vendor who is chosen by analyzing all the bids." ;
+                                                    rdfs:label "Contract"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Location
+<http://www.co-ode.org/ontologies/ont.owl#Location> rdf:type owl:Class ;
+                                                    rdfs:comment "Location class helps to specify the physical location of a market entity." ;
+                                                    rdfs:label "Location"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#MarketEntity
+<http://www.co-ode.org/ontologies/ont.owl#MarketEntity> rdf:type owl:Class ;
+                                                        rdfs:comment "Market Entity refers to any business requesting or providing resources which can be in the form of a product or service. For a transaction, there can be purchaser who is requesting for resources and a vendor who will be providing the products/resources." ;
+                                                        rdfs:label "MarketEntity"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#PointOfContact
+<http://www.co-ode.org/ontologies/ont.owl#PointOfContact> rdf:type owl:Class ;
+                                                          rdfs:comment "Each market entity has a point of contact who can be contacted in case of any discrepancies." ;
+                                                          rdfs:label "PointOfContact"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Purchaser
+<http://www.co-ode.org/ontologies/ont.owl#Purchaser> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#MarketEntity> ;
+                                                     rdfs:comment "Purchaser is the market entity who is demanding for products/services." ;
+                                                     rdfs:label "Purchaser"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#RFI
+<http://www.co-ode.org/ontologies/ont.owl#RFI> rdf:type owl:Class ;
+                                               rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Request> ;
+                                               rdfs:comment "A request for information (RFI) is a common business process whose purpose is to collect written information about the capabilities of various suppliers. Normally it follows a format that can be used for comparative purposes." ;
+                                               rdfs:label "RFI"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#RFP
+<http://www.co-ode.org/ontologies/ont.owl#RFP> rdf:type owl:Class ;
+                                               rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Request> ;
+                                               rdfs:comment "A request for proposal (RFP) is a document that solicits proposal, often made through a bidding process, by an agency or company interested in procurement of a commodity, service, or valuable asset, to potential suppliers to submit business proposals." ;
+                                               rdfs:label "RFP"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#RFQ
+<http://www.co-ode.org/ontologies/ont.owl#RFQ> rdf:type owl:Class ;
+                                               rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Request> ;
+                                               rdfs:comment "A request for quotation (RFQ) is a document that an organization submits to one or more potential suppliers eliciting quotations for a product or service. Typically, an RFQ seeks an itemized list of prices for something that is well-defined and quantifiable, such as hardware." ;
+                                               rdfs:label "RFQ"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#RFT
+<http://www.co-ode.org/ontologies/ont.owl#RFT> rdf:type owl:Class ;
+                                               rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Request> ;
+                                               rdfs:comment "A request for tender (RFT) is a formal and structured invitation to suppliers to submit competitive bids to supply raw materials, products, or services." ;
+                                               rdfs:label "RFT"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Request
+<http://www.co-ode.org/ontologies/ont.owl#Request> rdf:type owl:Class ;
+                                                   rdfs:comment "Request class describes the type of request that can be generated by a market entity to request/fulfill the demands. It can be of 4 types: Request for Quote, Request for Proposal, Request for Information and Request for Information." ;
+                                                   rdfs:label "Request"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#ServiceAttestation
+<http://www.co-ode.org/ontologies/ont.owl#ServiceAttestation> rdf:type owl:Class ;
+                                                              rdfs:label "ServiceAttestation"@en .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Vendor
+<http://www.co-ode.org/ontologies/ont.owl#Vendor> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#MarketEntity> ;
+                                                  rdfs:comment "Vendor is the market entity who will fulfill the requests for products/services." ;
+                                                  rdfs:label "Vendor"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://resourcedescription.tut.fi/ontology/resourceInterfaceModel#human_interaction_general
+<http://resourcedescription.tut.fi/ontology/resourceInterfaceModel#human_interaction_general> rdf:type owl:NamedIndividual .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#AssemblyQualification_Pena
+<http://resourcedescription.tut.fi/ontology/resourceModel#AssemblyQualification_Pena> rdf:type owl:NamedIndividual ,
+                                                                                               <http://resourcedescription.tut.fi/ontology/resourceModel#AssemblyQualification> ;
+                                                                                      <http://resourcedescription.tut.fi/ontology/resourceModel#certificate> "-" ;
+                                                                                      <http://resourcedescription.tut.fi/ontology/resourceModel#experience_InYears> "1.0"^^xsd:float .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#Inserting_Human_Adequate
+<http://resourcedescription.tut.fi/ontology/resourceModel#Inserting_Human_Adequate> rdf:type owl:NamedIndividual ,
+                                                                                             <http://resourcedescription.tut.fi/ontology/capabilityModel#Inserting> .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#Inserting_Human_Expert
+<http://resourcedescription.tut.fi/ontology/resourceModel#Inserting_Human_Expert> rdf:type owl:NamedIndividual ,
+                                                                                           <http://resourcedescription.tut.fi/ontology/capabilityModel#Inserting> .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#Inserting_Human_Intermediate
+<http://resourcedescription.tut.fi/ontology/resourceModel#Inserting_Human_Intermediate> rdf:type owl:NamedIndividual ,
+                                                                                                 <http://resourcedescription.tut.fi/ontology/capabilityModel#Inserting> ;
+                                                                                        <http://resourcedescription.tut.fi/ontology/capabilityModel#accuracy> "2.0"^^xsd:float ;
+                                                                                        <http://resourcedescription.tut.fi/ontology/capabilityModel#force_max> "100.0"^^xsd:float ;
+                                                                                        <http://resourcedescription.tut.fi/ontology/capabilityModel#force_min> "0.0"^^xsd:float ;
+                                                                                        <http://resourcedescription.tut.fi/ontology/capabilityModel#repeatability> "2.0"^^xsd:float .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#ItemSize_38
+<http://resourcedescription.tut.fi/ontology/resourceModel#ItemSize_38> rdf:type owl:NamedIndividual ,
+                                                                                <http://resourcedescription.tut.fi/ontology/capabilityModel#ItemSize> .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#ItemSize_max_Human_intermediate
+<http://resourcedescription.tut.fi/ontology/resourceModel#ItemSize_max_Human_intermediate> rdf:type owl:NamedIndividual ,
+                                                                                                    <http://resourcedescription.tut.fi/ontology/capabilityModel#ItemSize> ;
+                                                                                           <http://resourcedescription.tut.fi/ontology/capabilityModel#diameter> "600.0"^^xsd:float ;
+                                                                                           <http://resourcedescription.tut.fi/ontology/capabilityModel#height> "600.0"^^xsd:float ;
+                                                                                           <http://resourcedescription.tut.fi/ontology/capabilityModel#length> "600.0"^^xsd:float ;
+                                                                                           <http://resourcedescription.tut.fi/ontology/capabilityModel#weight> "10.0"^^xsd:float ;
+                                                                                           <http://resourcedescription.tut.fi/ontology/capabilityModel#width> "600.0"^^xsd:float .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#ItemSize_min_Human_intermediate
+<http://resourcedescription.tut.fi/ontology/resourceModel#ItemSize_min_Human_intermediate> rdf:type owl:NamedIndividual ,
+                                                                                                    <http://resourcedescription.tut.fi/ontology/capabilityModel#ItemSize> ;
+                                                                                           <http://resourcedescription.tut.fi/ontology/capabilityModel#diameter> "5.0"^^xsd:float ;
+                                                                                           <http://resourcedescription.tut.fi/ontology/capabilityModel#height> "5.0"^^xsd:float ;
+                                                                                           <http://resourcedescription.tut.fi/ontology/capabilityModel#length> "5.0"^^xsd:float ;
+                                                                                           <http://resourcedescription.tut.fi/ontology/capabilityModel#weight> "0.01"^^xsd:float ;
+                                                                                           <http://resourcedescription.tut.fi/ontology/capabilityModel#width> "5.0"^^xsd:float .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#MachineToolQualification_Pena
+<http://resourcedescription.tut.fi/ontology/resourceModel#MachineToolQualification_Pena> rdf:type owl:NamedIndividual ,
+                                                                                                  <http://resourcedescription.tut.fi/ontology/resourceModel#MachineToolQualification> ;
+                                                                                         <http://resourcedescription.tut.fi/ontology/resourceModel#experience_InYears> "2.0"^^xsd:float .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#Moving_Human_Adequate
+<http://resourcedescription.tut.fi/ontology/resourceModel#Moving_Human_Adequate> rdf:type owl:NamedIndividual ,
+                                                                                          <http://resourcedescription.tut.fi/ontology/capabilityModel#Moving> .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#Moving_Human_Expert
+<http://resourcedescription.tut.fi/ontology/resourceModel#Moving_Human_Expert> rdf:type owl:NamedIndividual ,
+                                                                                        <http://resourcedescription.tut.fi/ontology/capabilityModel#Moving> .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#Moving_Human_Intermediate
+<http://resourcedescription.tut.fi/ontology/resourceModel#Moving_Human_Intermediate> rdf:type owl:NamedIndividual ,
+                                                                                              <http://resourcedescription.tut.fi/ontology/capabilityModel#Moving> ;
+                                                                                     <http://resourcedescription.tut.fi/ontology/capabilityModel#accuracy> "2.0"^^xsd:float ;
+                                                                                     <http://resourcedescription.tut.fi/ontology/capabilityModel#dofNumber> "6"^^xsd:int ;
+                                                                                     <http://resourcedescription.tut.fi/ontology/capabilityModel#payload> "10.0"^^xsd:float ;
+                                                                                     <http://resourcedescription.tut.fi/ontology/capabilityModel#repeatability> "2.0"^^xsd:float ;
+                                                                                     <http://resourcedescription.tut.fi/ontology/capabilityModel#speed_x_max> "1.0"^^xsd:float ;
+                                                                                     <http://resourcedescription.tut.fi/ontology/capabilityModel#speed_y_max> "1.0"^^xsd:float ;
+                                                                                     <http://resourcedescription.tut.fi/ontology/capabilityModel#speed_z_max> "1.0"^^xsd:float .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#Picking_Human_Adequate
+<http://resourcedescription.tut.fi/ontology/resourceModel#Picking_Human_Adequate> rdf:type owl:NamedIndividual ,
+                                                                                           <http://resourcedescription.tut.fi/ontology/capabilityModel#Picking> .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#Picking_Human_Expert
+<http://resourcedescription.tut.fi/ontology/resourceModel#Picking_Human_Expert> rdf:type owl:NamedIndividual ,
+                                                                                         <http://resourcedescription.tut.fi/ontology/capabilityModel#Picking> .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#Picking_Human_Intermediate
+<http://resourcedescription.tut.fi/ontology/resourceModel#Picking_Human_Intermediate> rdf:type owl:NamedIndividual ,
+                                                                                               <http://resourcedescription.tut.fi/ontology/capabilityModel#Picking> ;
+                                                                                      <http://resourcedescription.tut.fi/ontology/capabilityModel#hasItemSize_max> <http://resourcedescription.tut.fi/ontology/resourceModel#ItemSize_max_Human_intermediate> ;
+                                                                                      <http://resourcedescription.tut.fi/ontology/capabilityModel#hasItemSize_min> <http://resourcedescription.tut.fi/ontology/resourceModel#ItemSize_min_Human_intermediate> ;
+                                                                                      <http://resourcedescription.tut.fi/ontology/capabilityModel#accuracy> "2.0"^^xsd:float ;
+                                                                                      <http://resourcedescription.tut.fi/ontology/capabilityModel#payload> "10.0"^^xsd:float ;
+                                                                                      <http://resourcedescription.tut.fi/ontology/capabilityModel#repeatability> "2.0"^^xsd:float .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#Placing_Human_Adequate
+<http://resourcedescription.tut.fi/ontology/resourceModel#Placing_Human_Adequate> rdf:type owl:NamedIndividual ,
+                                                                                           <http://resourcedescription.tut.fi/ontology/capabilityModel#Placing> .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#Placing_Human_Expert
+<http://resourcedescription.tut.fi/ontology/resourceModel#Placing_Human_Expert> rdf:type owl:NamedIndividual ,
+                                                                                         <http://resourcedescription.tut.fi/ontology/capabilityModel#Placing> .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#Placing_Human_Intermediate
+<http://resourcedescription.tut.fi/ontology/resourceModel#Placing_Human_Intermediate> rdf:type owl:NamedIndividual ,
+                                                                                               <http://resourcedescription.tut.fi/ontology/capabilityModel#Placing> ;
+                                                                                      <http://resourcedescription.tut.fi/ontology/capabilityModel#accuracy> "2.0"^^xsd:float ;
+                                                                                      <http://resourcedescription.tut.fi/ontology/capabilityModel#repeatability> "2.0"^^xsd:float .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#TransportFeeding_Human_Adequate
+<http://resourcedescription.tut.fi/ontology/resourceModel#TransportFeeding_Human_Adequate> rdf:type owl:NamedIndividual ,
+                                                                                                    <http://resourcedescription.tut.fi/ontology/capabilityModel#TransportFeeding> .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#TransportFeeding_Human_Expert
+<http://resourcedescription.tut.fi/ontology/resourceModel#TransportFeeding_Human_Expert> rdf:type owl:NamedIndividual ,
+                                                                                                  <http://resourcedescription.tut.fi/ontology/capabilityModel#TransportFeeding> .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#TransportFeeding_Human_Intermediate
+<http://resourcedescription.tut.fi/ontology/resourceModel#TransportFeeding_Human_Intermediate> rdf:type owl:NamedIndividual ,
+                                                                                                        <http://resourcedescription.tut.fi/ontology/capabilityModel#TransportFeeding> ;
+                                                                                               <http://resourcedescription.tut.fi/ontology/capabilityModel#hasItemSize_max> <http://resourcedescription.tut.fi/ontology/resourceModel#ItemSize_max_Human_intermediate> ;
+                                                                                               <http://resourcedescription.tut.fi/ontology/capabilityModel#hasItemSize_min> <http://resourcedescription.tut.fi/ontology/resourceModel#ItemSize_min_Human_intermediate> ;
+                                                                                               <http://resourcedescription.tut.fi/ontology/capabilityModel#accuracy> "2.0"^^xsd:float ;
+                                                                                               <http://resourcedescription.tut.fi/ontology/capabilityModel#payload> "10.0"^^xsd:float .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#Transporting_Human_Adequate
+<http://resourcedescription.tut.fi/ontology/resourceModel#Transporting_Human_Adequate> rdf:type owl:NamedIndividual ,
+                                                                                                <http://resourcedescription.tut.fi/ontology/capabilityModel#Transporting> .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#Transporting_Human_Expert
+<http://resourcedescription.tut.fi/ontology/resourceModel#Transporting_Human_Expert> rdf:type owl:NamedIndividual ,
+                                                                                              <http://resourcedescription.tut.fi/ontology/capabilityModel#Transporting> .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#Transporting_Human_Intermediate
+<http://resourcedescription.tut.fi/ontology/resourceModel#Transporting_Human_Intermediate> rdf:type owl:NamedIndividual ,
+                                                                                                    <http://resourcedescription.tut.fi/ontology/capabilityModel#Transporting> ;
+                                                                                           <http://resourcedescription.tut.fi/ontology/capabilityModel#hasItemSize_max> <http://resourcedescription.tut.fi/ontology/resourceModel#ItemSize_max_Human_intermediate> ;
+                                                                                           <http://resourcedescription.tut.fi/ontology/capabilityModel#hasItemSize_min> <http://resourcedescription.tut.fi/ontology/resourceModel#ItemSize_min_Human_intermediate> ;
+                                                                                           <http://resourcedescription.tut.fi/ontology/capabilityModel#accuracy> "2.0"^^xsd:float ;
+                                                                                           <http://resourcedescription.tut.fi/ontology/capabilityModel#dof> "Rotate_X" ,
+                                                                                                                                                            "Rotate_Y" ,
+                                                                                                                                                            "Rotate_Z" ,
+                                                                                                                                                            "Translate_X" ,
+                                                                                                                                                            "Translate_Y" ,
+                                                                                                                                                            "Translate_Z" ;
+                                                                                           <http://resourcedescription.tut.fi/ontology/capabilityModel#payload> "10.0"^^xsd:float ;
+                                                                                           <http://resourcedescription.tut.fi/ontology/capabilityModel#repeatability> "2.0"^^xsd:float ;
+                                                                                           <http://resourcedescription.tut.fi/ontology/capabilityModel#speed_x_max> "1.0"^^xsd:float ;
+                                                                                           <http://resourcedescription.tut.fi/ontology/capabilityModel#speed_y_max> "1.0"^^xsd:float ;
+                                                                                           <http://resourcedescription.tut.fi/ontology/capabilityModel#speed_z_max> "1.0"^^xsd:float .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#adequate
+<http://resourcedescription.tut.fi/ontology/resourceModel#adequate> rdf:type owl:NamedIndividual ,
+                                                                             <http://resourcedescription.tut.fi/ontology/resourceModel#PerformanceLevel> ;
+                                                                    <http://resourcedescription.tut.fi/ontology/resourceModel#hasCapability> <http://resourcedescription.tut.fi/ontology/resourceModel#Inserting_Human_Adequate> ,
+                                                                                                                                             <http://resourcedescription.tut.fi/ontology/resourceModel#Moving_Human_Adequate> ,
+                                                                                                                                             <http://resourcedescription.tut.fi/ontology/resourceModel#Picking_Human_Adequate> ,
+                                                                                                                                             <http://resourcedescription.tut.fi/ontology/resourceModel#Placing_Human_Adequate> ,
+                                                                                                                                             <http://resourcedescription.tut.fi/ontology/resourceModel#TransportFeeding_Human_Adequate> ,
+                                                                                                                                             <http://resourcedescription.tut.fi/ontology/resourceModel#Transporting_Human_Adequate> .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#expert
+<http://resourcedescription.tut.fi/ontology/resourceModel#expert> rdf:type owl:NamedIndividual ,
+                                                                           <http://resourcedescription.tut.fi/ontology/resourceModel#PerformanceLevel> ;
+                                                                  <http://resourcedescription.tut.fi/ontology/resourceModel#hasCapability> <http://resourcedescription.tut.fi/ontology/resourceModel#Inserting_Human_Expert> ,
+                                                                                                                                           <http://resourcedescription.tut.fi/ontology/resourceModel#Moving_Human_Expert> ,
+                                                                                                                                           <http://resourcedescription.tut.fi/ontology/resourceModel#Picking_Human_Expert> ,
+                                                                                                                                           <http://resourcedescription.tut.fi/ontology/resourceModel#Placing_Human_Expert> ,
+                                                                                                                                           <http://resourcedescription.tut.fi/ontology/resourceModel#TransportFeeding_Human_Expert> ,
+                                                                                                                                           <http://resourcedescription.tut.fi/ontology/resourceModel#Transporting_Human_Expert> .
+
+
+###  http://resourcedescription.tut.fi/ontology/resourceModel#intermediate
+<http://resourcedescription.tut.fi/ontology/resourceModel#intermediate> rdf:type owl:NamedIndividual ,
+                                                                                 <http://resourcedescription.tut.fi/ontology/resourceModel#PerformanceLevel> ;
+                                                                        <http://resourcedescription.tut.fi/ontology/resourceModel#hasCapability> <http://resourcedescription.tut.fi/ontology/resourceModel#Inserting_Human_Intermediate> ,
+                                                                                                                                                 <http://resourcedescription.tut.fi/ontology/resourceModel#Moving_Human_Intermediate> ,
+                                                                                                                                                 <http://resourcedescription.tut.fi/ontology/resourceModel#Picking_Human_Intermediate> ,
+                                                                                                                                                 <http://resourcedescription.tut.fi/ontology/resourceModel#Placing_Human_Intermediate> ,
+                                                                                                                                                 <http://resourcedescription.tut.fi/ontology/resourceModel#TransportFeeding_Human_Intermediate> ,
+                                                                                                                                                 <http://resourcedescription.tut.fi/ontology/resourceModel#Transporting_Human_Intermediate> .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+<http://resourcedescription.tut.fi/ontology/capabilityModel#CapabilityDefinitionElement> rdfs:comment "CapabilityDefinitionElement class is a parent class for all the capability related classes. It holds the sub-classes needed for modelling and managing the individual and combined capabilities of resources." .
+
+
+<http://resourcedescription.tut.fi/ontology/processTaxonomyModel#ProcessTaxonomyElement> rdfs:comment """This
+ is a parent class for the taxonomy of different process functionalities.""" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
